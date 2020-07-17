@@ -1,0 +1,98 @@
+[
+    {
+        "name": "NES/Famicom",
+        "manufacturer": "Nintendo",
+        "release_date": "1983-07-15",
+        "arch": "6502",
+        "cpu": "Ricoh 2A03",
+        "description": "A Japanese clone of the MOS Technology 6502 processor."
+    },
+    {
+        "name": "SNES/Super Famicom",
+        "manufacturer": "Nintendo",
+        "release_date": "1990-11-21",
+        "arch": "6502",
+        "cpu": "Ricoh 5A22",
+        "description": "A Japanese clone of the WDC 65C816 processor, a 16-bit extension of the 6502."
+    },
+    {
+        "name": "Nintendo 64",
+        "manufacturer": "Nintendo",
+        "release_date": "1996-06-23",
+        "arch": "mips",
+        "cpu": "NEC VR4300",
+        "description": "A licensed version of the MIPS R4300i, a reduced-cost embedded 64-bit MIPS processor."
+    },
+    {
+        "name": "GameCube",
+        "manufacturer": "Nintendo",
+        "release_date": "2001-09-14",
+        "arch": "ppc",
+        "cpu": "IBM Gekko",
+        "description": "A custom derivative of the 32-bit IBM PowerPC 750."
+    },
+    {
+        "name": "Wii",
+        "manufacturer": "Nintendo",
+        "release_date": "2006-11-19",
+        "arch": "ppc",
+        "cpu": "IBM Broadway",
+        "description": "A faster version of the Gekko processor used in the GameCube."
+    },
+    {
+        "name": "Wii U",
+        "manufacturer": "Nintendo",
+        "release_date": "2012-11-18",
+        "arch": "ppc",
+        "cpu": "IBM Espresso",
+        "description": "A continued evolution of the PowerPC cores used in the GameCube and the Wii, now in a triple-core design."
+    },
+    {
+        "name": "Switch",
+        "manufacturer": "Nintendo",
+        "release_date": "2017-03-03",
+        "arch": "arm",
+        "cpu": "NVidia Tegra X1",
+        "description": "A system-on-a-chip combining 4 high-performance ARM Cortex-A57 cores, 4 low-power ARM Cortex-A53 cores, and onboard NVidia graphics."
+    },
+    {
+        "name": "PlayStation",
+        "manufacturer": "Sony",
+        "release_date": "1994-12-02",
+        "arch": "mips",
+        "cpu": "MIPS R3000",
+        "description": "An early and widely-used 32-bit MIPS design."
+    },
+    {
+        "name": "PlayStation 2",
+        "manufacturer": "Sony",
+        "release_date": "2000-03-04",
+        "arch": "mips",
+        "cpu": "Sony/Toshiba Emotion Engine",
+        "description": "A custom chip combining a general-purpose 64-bit CPU core based on the MIPS R5900 with 2 custom vector-processing cores."
+    },
+    {
+        "name": "PlayStation 3",
+        "manufacturer": "Sony",
+        "release_date": "2006-11-11",
+        "arch": "ppc",
+        "cpu": "Sony/Toshiba/IBM Cell",
+        "description": "An ambitious design combining a single general-purpose 64-bit PowerPC CPU core with 8 \"Synergistic Processing Element\" coprocessors."
+    },
+    {
+        "name": "PlayStation 4",
+        "manufacturer": "Sony",
+        "release_date": "2013-11-15",
+        "arch": "x86",
+        "cpu": "AMD Jaguar 8-Core",
+        "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture."
+    },
+    {
+        "name": "PlayStation 5",
+        "manufacturer": "Sony",
+        "release_date": "2020-11-01",
+        "arch": "x86",
+        "cpu": "AMD Zen 2 8-Core",
+        "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
+    }
+]
