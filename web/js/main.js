@@ -33,6 +33,12 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'End' });
 
   dataTable.addRows(dataRows);
-  var options = { colors: colors };
+  var options = {
+    colors: colors,
+    timeline: {
+      rowLabelStyle: { fontSize: 16 },
+      barLabelStyle: { fontSize: 16 }
+    }
+  };
   chart.draw(dataTable, options);
 }
