@@ -1,8 +1,6 @@
 google.charts.load('current', {'packages':['timeline']});
 google.charts.setOnLoadCallback(drawChart);
 
-
-
 function generateTooltip(consoleInfo) {
   var tooltipStyle = "font-family: sans-serif; " +
                      "font-size: medium; " +
