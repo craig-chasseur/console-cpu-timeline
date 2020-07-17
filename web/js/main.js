@@ -1,10 +1,28 @@
 google.charts.load('current', {'packages':['timeline']});
 google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
+
+
+
+function generateTooltip(consoleInfo) {
   var tooltipStyle = "font-family: sans-serif; " +
                      "font-size: medium; " +
                      "max-width: 50ch; " +
                      "padding: 0ch 2ch;"
+  
+  return "<div style=\"" + tooltipStyle + "\">" +
+          "<p>" +
+            "<span style=\"font-weight: bold\">CPU: " + consoleInfo.cpu +
+                "</span>" +
+            "<br>Cores: " + consoleInfo.cores +
+            "<br>Clock speed: " + consoleInfo.clock +
+            (consoleInfo.coprocessors === null ?
+                "" : "<br>Coprocessors: " + consoleInfo.coprocessors) +
+          "</p>" +
+          "<p>" + consoleInfo.description + "</p>" +
+          "</div>";
+}
+
+function drawChart() {
   var globalEndDate = new Date(2023, 0, 1);
 
   var dataRows = [];
@@ -18,14 +36,10 @@ function drawChart() {
       endDate.setMonth(endDate.getMonth() - 2);
     }
 
-    var tooltip = "<div style=\"" + tooltipStyle + "\">" +
-                  "<p style=\"font-weight: bold\">CPU: " +
-                      thisConsole.cpu + "</p>" +
-                  "<p>" + thisConsole.description + "</p>" +
-                  "</div>";
     var style = "color: " + arch_info[thisConsole.arch].color + ";"
 
-    dataRows.push([thisConsole.manufacturer, thisConsole.name, tooltip, style,
+    dataRows.push([thisConsole.manufacturer, thisConsole.name,
+                   generateTooltip(thisConsole), style,
                    new Date(Date.parse(thisConsole.release_date)), endDate]);
   }
 
