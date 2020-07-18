@@ -1,25 +1,33 @@
 const globalEndDate = new Date(2025, 0, 1);
 
+const archList = [
+    "6502",
+    "x86",
+    "mips",
+    "ppc",
+    "arm"
+];
+
 const archInfo = {
     "6502": {
         "color": "#888888",
-        "description": "MOS Technology 6502 and clones/derivatives."
+        "name": "MOS Technology 6502 and clones/derivatives"
     },
     "x86": {
         "color": "#0000ff",
-        "description": "Intel/AMD x86"
+        "name": "Intel/AMD x86"
     },
     "mips": {
         "color": "#ff00ff",
-        "description": "MIPS"
+        "name": "MIPS"
     },
     "ppc": {
         "color": "#00ff00",
-        "description": "PowerPC"
+        "name": "PowerPC"
     },
     "arm": {
         "color": "#ff0000",
-        "description": "ARM"
+        "name": "ARM"
     }
 };
 

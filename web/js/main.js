@@ -56,4 +56,25 @@ function drawChart() {
     tooltip: { isHtml: true }
   };
   chart.draw(dataTable, options);
+
+  fillArchTable();
+}
+
+function makeArchRow(archInfo) {
+  var row = document.createElement("tr");
+
+  var nameCell = document.createElement("td");
+  nameCell.style.backgroundColor = archInfo.color;
+  var nameText = document.createTextNode(archInfo.name);
+  nameCell.appendChild(nameText);
+  row.appendChild(nameCell);
+
+  return row;
+}
+
+function fillArchTable() {
+  var archTable = document.getElementById("legend_body");
+  for (arch of archList) {
+    archTable.appendChild(makeArchRow(archInfo[arch]));
+  }
 }

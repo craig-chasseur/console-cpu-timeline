@@ -12,3 +12,15 @@ div.tooltip {
 span.cpu {
   font-weight: bold;
 }
+
+#legend {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+#legend td, th {
+  font-family: sans-serif;
+  font-size: medium;
+  border: 1px solid #aaaaaa;
+  padding: 8px;
+}
