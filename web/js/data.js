@@ -1,4 +1,4 @@
-const globalEndDate = new Date(2023, 0, 1);
+const globalEndDate = new Date(2025, 0, 1);
 
 const archInfo = {
     "6502": {
@@ -155,5 +155,49 @@ const consoles = [
         "clock": "3.5 GHz",
         "coprocessors": null,
         "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
-    }
+    },
+    {
+        "name": "Xbox",
+        "manufacturer": "Microsoft",
+        "release_date": "2001-11-15",
+        "arch": "x86",
+        "cpu": "Intel Pentium 3",
+        "cores": "1",
+        "clock": "733 MHz",
+        "coprocessors": null,
+        "description": "An Intel Pentium 3 \"Coppermine\" processor, much like those used in contemporary PCs."
+    },
+    {
+        "name": "Xbox 360",
+        "manufacturer": "Microsoft",
+        "release_date": "2005-11-22",
+        "arch": "ppc",
+        "cpu": "IBM Xenon",
+        "cores": "3",
+        "clock": "3.2 GHz",
+        "coprocessors": null,
+        "description": "A triple-core 64-bit PowerPC design from IBM, each core is very similar to the main CPU core in the PS3's Cell processor."
+    },
+    {
+        "name": "Xbox One",
+        "manufacturer": "Microsoft",
+        "release_date": "2013-11-22",
+        "arch": "x86",
+        "cpu": "AMD Jaguar",
+        "cores": "8",
+        "clock": "1.75 GHz (2.3 GHz in Xbox One X)",
+        "coprocessors": null,
+        "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture."
+    },
+    {
+        "name": "Xbox Series X",
+        "manufacturer": "Microsoft",
+        "release_date": "2020-11-01",
+        "arch": "x86",
+        "cpu": "AMD Zen 2",
+        "cores": "8",
+        "clock": "3.8 GHz (3.6 GHz with SMT enabled)",
+        "coprocessors": null,
+        "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
+    },
 ];
