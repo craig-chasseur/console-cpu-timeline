@@ -1,4 +1,27 @@
-[
+const archInfo = {
+    "6502": {
+        "color": "#888888",
+        "description": "MOS Technology 6502 and clones/derivatives."
+    },
+    "x86": {
+        "color": "#0000ff",
+        "description": "Intel/AMD x86"
+    },
+    "mips": {
+        "color": "#ff00ff",
+        "description": "MIPS"
+    },
+    "ppc": {
+        "color": "#00ff00",
+        "description": "PowerPC"
+    },
+    "arm": {
+        "color": "#ff0000",
+        "description": "ARM"
+    }
+};
+
+const consoles = [
     {
         "name": "NES/Famicom",
         "manufacturer": "Nintendo",
@@ -131,4 +154,4 @@
         "coprocessors": null,
         "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
     }
-]
+];

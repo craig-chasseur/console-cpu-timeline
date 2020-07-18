@@ -29,7 +29,7 @@ function drawChart() {
       endDate.setMonth(endDate.getMonth() - 2);
     }
 
-    var style = "color: " + arch_info[thisConsole.arch].color + ";"
+    var style = "color: " + archInfo[thisConsole.arch].color + ";"
 
     dataRows.push([thisConsole.manufacturer, thisConsole.name,
                    generateTooltip(thisConsole), style,
