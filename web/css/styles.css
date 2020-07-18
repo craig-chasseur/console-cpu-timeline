@@ -1,0 +1,10 @@
+div.tooltip {
+  font-family: sans-serif;
+  font-size: medium;
+  max-width: 50ch;
+  padding: 0ch 2ch;
+}
+
+span.cpu {
+  font-weight: bold;
+}

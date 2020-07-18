@@ -2,14 +2,9 @@ google.charts.load('current', {'packages':['timeline']});
 google.charts.setOnLoadCallback(drawChart);
 
 function generateTooltip(consoleInfo) {
-  var tooltipStyle = "font-family: sans-serif; " +
-                     "font-size: medium; " +
-                     "max-width: 50ch; " +
-                     "padding: 0ch 2ch;"
-  
-  return "<div style=\"" + tooltipStyle + "\">" +
+  return "<div class=\"tooltip\">" +
           "<p>" +
-            "<span style=\"font-weight: bold\">CPU: " + consoleInfo.cpu +
+            "<span class=\"cpu\">CPU: " + consoleInfo.cpu +
                 "</span>" +
             "<br>Cores: " + consoleInfo.cores +
             "<br>Clock speed: " + consoleInfo.clock +
