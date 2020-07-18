@@ -1,3 +1,5 @@
+const globalEndDate = new Date(2023, 0, 1);
+
 const archInfo = {
     "6502": {
         "color": "#888888",

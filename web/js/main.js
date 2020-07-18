@@ -4,8 +4,7 @@ google.charts.setOnLoadCallback(drawChart);
 function generateTooltip(consoleInfo) {
   return "<div class=\"tooltip\">" +
           "<p>" +
-            "<span class=\"cpu\">CPU: " + consoleInfo.cpu +
-                "</span>" +
+            "<span class=\"cpu\">CPU: " + consoleInfo.cpu + "</span>" +
             "<br>Cores: " + consoleInfo.cores +
             "<br>Clock speed: " + consoleInfo.clock +
             (consoleInfo.coprocessors === null ?
@@ -15,9 +14,7 @@ function generateTooltip(consoleInfo) {
           "</div>";
 }
 
-function drawChart() {
-  var globalEndDate = new Date(2023, 0, 1);
-
+function generateDataRows() {
   var dataRows = [];
   for (var i = 0; i < consoles.length; i++) {
     var thisConsole = consoles[i];
@@ -35,7 +32,10 @@ function drawChart() {
                    generateTooltip(thisConsole), style,
                    new Date(Date.parse(thisConsole.release_date)), endDate]);
   }
+  return dataRows;
+}
 
+function drawChart() {
   var container = document.getElementById('timeline');
   var chart = new google.visualization.Timeline(container);
   var dataTable = new google.visualization.DataTable();
@@ -47,7 +47,7 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'Start' });
   dataTable.addColumn({ type: 'date', id: 'End' });
 
-  dataTable.addRows(dataRows);
+  dataTable.addRows(generateDataRows());
   var options = {
     timeline: {
       rowLabelStyle: { fontSize: 16 },
