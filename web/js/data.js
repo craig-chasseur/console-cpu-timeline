@@ -251,6 +251,16 @@ const consoles = [
     "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Paired with the specialized \"Tom\" and \"Jerry\" chips for video and audio processing, respectively."
   },
   {
+    "name": "SG-1000",
+    "manufacturer": "Sega",
+    "release_date": "1983-07-15",
+    "arch": "z80",
+    "cpu": "Zilog Z80",
+    "cores": "1",
+    "clock": "3.58 MHz",
+    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems."
+  },
+  {
     "name": "Master System/Mark III",
     "manufacturer": "Sega",
     "release_date": "1985-10-20",
