@@ -209,6 +209,48 @@ const consoles = [
     "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
   },
   {
+    "name": "2600",
+    "manufacturer": "Atari",
+    "release_date": "1977-09-11",
+    "arch": "6502",
+    "cpu": "MOS Technology 6507",
+    "cores": "1",
+    "clock": "1.19 MHz",
+    "description": "A cheaper version of the 6502 in a 28-pin DIP package."
+  },
+  {
+    "name": "5200",
+    "manufacturer": "Atari",
+    "release_date": "1982-01-01",
+    "arch": "6502",
+    "cpu": "MOS Technology 6502C",
+    "cores": "1",
+    "clock": "1.79 MHz",
+    "description": "A variant of the 6502 supporting a higher clockspeed and video sync."
+  },
+  {
+    "name": "7800",
+    "manufacturer": "Atari",
+    "release_date": "1986-05-01",
+    "arch": "6502",
+    "cpu": "MOS Technology 6502C",
+    "cores": "1",
+    "clock": "1.79 MHz",
+    "description": "A variant of the 6502 supporting a higher clockspeed and video sync."
+  },
+  {
+    "name": "Jaguar",
+    "manufacturer": "Atari",
+    "release_date": "1993-11-23",
+    "eol": "1996-12-31",
+    "arch": "m68k",
+    "cpu": "Motorola 68000",
+    "cores": "1",
+    "clock": "13.295 MHz",
+    "coprocessors": "\"Tom\" GPU & \"Jerry\" DSP",
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Paired with the specialized \"Tom\" and \"Jerry\" chips for video and audio processing, respectively."
+  },
+  {
     "name": "Master System/Mark III",
     "manufacturer": "Sega",
     "release_date": "1985-10-20",
