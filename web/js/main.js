@@ -24,8 +24,8 @@ function generateTooltip(consoleInfo) {
             "<span class=\"cpu\">CPU: " + consoleInfo.cpu + "</span>" +
             "<br>Cores: " + consoleInfo.cores +
             "<br>Clock speed: " + consoleInfo.clock +
-            (consoleInfo.coprocessors === null ?
-                "" : "<br>Coprocessors: " + consoleInfo.coprocessors) +
+            ("coprocessors" in consoleInfo ?
+                "<br>Coprocessors: " + consoleInfo.coprocessors : "") +
           "</p>" +
           "<p>" + consoleInfo.description + "</p>" +
           "</div>";

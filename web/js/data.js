@@ -54,7 +54,6 @@ const consoles = [
     "cpu": "Ricoh 2A03",
     "cores": "1",
     "clock": "1.79 MHz (NTSC), 1.66 MHz (PAL)",
-    "coprocessors": null,
     "description": "A Japanese clone of the MOS Technology 6502 processor."
   },
   {
@@ -65,7 +64,6 @@ const consoles = [
     "cpu": "Ricoh 5A22",
     "cores": "1",
     "clock": "3.58 MHz",
-    "coprocessors": null,
     "description": "A Japanese clone of the WDC 65C816 processor, a 16-bit extension of the 6502."
   },
   {
@@ -76,7 +74,6 @@ const consoles = [
     "cpu": "NEC VR4300",
     "cores": "1",
     "clock": "93.75 MHz",
-    "coprocessors": null,
     "description": "A licensed version of the MIPS R4300i, a reduced-cost embedded 64-bit MIPS processor."
   },
   {
@@ -87,7 +84,6 @@ const consoles = [
     "cpu": "IBM Gekko",
     "cores": "1",
     "clock": "486 MHz",
-    "coprocessors": null,
     "description": "A custom derivative of the 32-bit IBM PowerPC 750."
   },
   {
@@ -98,7 +94,6 @@ const consoles = [
     "cpu": "IBM Broadway",
     "cores": "1",
     "clock": "729 MHz",
-    "coprocessors": null,
     "description": "A faster version of the Gekko processor used in the GameCube."
   },
   {
@@ -109,7 +104,6 @@ const consoles = [
     "cpu": "IBM Espresso",
     "cores": "3",
     "clock": "1.24 GHz",
-    "coprocessors": null,
     "description": "A continued evolution of the PowerPC cores used in the GameCube and the Wii, now in a triple-core design."
   },
   {
@@ -120,7 +114,6 @@ const consoles = [
     "cpu": "NVidia Tegra X1",
     "cores": "4 (technically 8, but only 4 enabled)",
     "clock": "1.02 GHz",
-    "coprocessors": null,
     "description": "A system-on-a-chip combining 4 high-performance ARM Cortex-A57 cores, 4 low-power ARM Cortex-A53 cores (disabled), and onboard NVidia graphics."
   },
   {
@@ -131,7 +124,6 @@ const consoles = [
     "cpu": "MIPS R3000",
     "cores": "1",
     "clock": "33 MHz",
-    "coprocessors": null,
     "description": "An early and widely-used 32-bit MIPS design."
   },
   {
@@ -164,7 +156,6 @@ const consoles = [
     "cpu": "AMD Jaguar",
     "cores": "8",
     "clock": "1.6 GHz (2.13 GHz in PS4 Pro)",
-    "coprocessors": null,
     "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture."
   },
   {
@@ -175,7 +166,6 @@ const consoles = [
     "cpu": "AMD Zen 2",
     "cores": "8",
     "clock": "3.5 GHz",
-    "coprocessors": null,
     "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
   },
   {
@@ -186,7 +176,6 @@ const consoles = [
     "cpu": "Intel Pentium 3",
     "cores": "1",
     "clock": "733 MHz",
-    "coprocessors": null,
     "description": "An Intel Pentium 3 \"Coppermine\" processor, much like those used in contemporary PCs."
   },
   {
@@ -197,7 +186,6 @@ const consoles = [
     "cpu": "IBM Xenon",
     "cores": "3",
     "clock": "3.2 GHz",
-    "coprocessors": null,
     "description": "A triple-core 64-bit PowerPC design from IBM, each core is very similar to the main CPU core in the PS3's Cell processor."
   },
   {
@@ -208,7 +196,6 @@ const consoles = [
     "cpu": "AMD Jaguar",
     "cores": "8",
     "clock": "1.75 GHz (2.3 GHz in Xbox One X)",
-    "coprocessors": null,
     "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture."
   },
   {
@@ -219,7 +206,6 @@ const consoles = [
     "cpu": "AMD Zen 2",
     "cores": "8",
     "clock": "3.8 GHz (3.6 GHz with SMT enabled)",
-    "coprocessors": null,
     "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
   },
   {
@@ -230,7 +216,6 @@ const consoles = [
     "cpu": "Zilog Z80A",
     "cores": "1",
     "clock": "4 MHz",
-    "coprocessors": null,
     "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems."
   },
   {
@@ -241,7 +226,6 @@ const consoles = [
     "cpu": "Motorola 68000",
     "cores": "1",
     "clock": "7.6 MHz",
-    "coprocessors": null,
     "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers."
   },
   {
@@ -252,7 +236,6 @@ const consoles = [
     "cpu": "Hitachi SH-2",
     "cores": "2",
     "clock": "28.6 MHz",
-    "coprocessors": null,
     "description": "Dual Hitachi SH-2 processors using the proprietary SuperH RISC instruction set."
   },
   {
@@ -264,7 +247,6 @@ const consoles = [
     "cpu": "Hitachi SH-4",
     "cores": "1",
     "clock": "200 MHz",
-    "coprocessors": null,
     "description": "Hitachi SH-4 using the proprietary SuperH RISC instruction set. Designed for multimedia with an enhanced FPU."
   }
 ];
