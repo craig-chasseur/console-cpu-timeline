@@ -20,28 +20,36 @@ const colors = [
 // Non-const because colors will be patched in at runtime.
 let arches = {
   "6502": {
-    "name": "MOS Technology 6502 and clones/derivatives"
+    "name": "MOS Technology 6502 and clones/derivatives",
+    "link": "https://en.wikipedia.org/wiki/MOS_Technology_6502"
   },
   "z80": {
-    "name": "Zilog Z80"
+    "name": "Zilog Z80",
+    "link": "https://en.wikipedia.org/wiki/Zilog_Z80"
   },
   "m68k": {
-    "name": "Motorola 680x0 series"
+    "name": "Motorola 680x0 series",
+    "link": "https://en.wikipedia.org/wiki/Motorola_68000_series"
   },
   "x86": {
-    "name": "Intel/AMD x86"
+    "name": "Intel/AMD x86",
+    "link": "https://en.wikipedia.org/wiki/X86"
   },
   "mips": {
-    "name": "MIPS"
+    "name": "MIPS",
+    "link": "https://en.wikipedia.org/wiki/MIPS_architecture"
   },
   "ppc": {
-    "name": "PowerPC"
+    "name": "PowerPC",
+    "link": "https://en.wikipedia.org/wiki/PowerPC"
   },
   "arm": {
-    "name": "ARM"
+    "name": "ARM",
+    "link": "https://en.wikipedia.org/wiki/ARM_architecture"
   },
   "sh": {
-    "name": "Hitachi SuperH"
+    "name": "Hitachi SuperH",
+    "link": "https://en.wikipedia.org/wiki/SuperH"
   }
 };
 
@@ -54,7 +62,8 @@ const consoles = [
     "cpu": "Ricoh 2A03",
     "cores": "1",
     "clock": "1.79 MHz (NTSC), 1.66 MHz (PAL)",
-    "description": "A Japanese clone of the MOS Technology 6502 processor."
+    "description": "A Japanese clone of the MOS Technology 6502 processor.",
+    "link": "https://en.wikipedia.org/wiki/Nintendo_Entertainment_System"
   },
   {
     "name": "SNES/Super Famicom",
@@ -64,7 +73,8 @@ const consoles = [
     "cpu": "Ricoh 5A22",
     "cores": "1",
     "clock": "3.58 MHz",
-    "description": "A Japanese clone of the WDC 65C816 processor, a 16-bit extension of the 6502."
+    "description": "A Japanese clone of the WDC 65C816 processor, a 16-bit extension of the 6502.",
+    "link": "https://en.wikipedia.org/wiki/Super_Nintendo_Entertainment_System"
   },
   {
     "name": "Nintendo 64",
@@ -74,7 +84,8 @@ const consoles = [
     "cpu": "NEC VR4300",
     "cores": "1",
     "clock": "93.75 MHz",
-    "description": "A licensed version of the MIPS R4300i, a reduced-cost embedded 64-bit MIPS processor."
+    "description": "A licensed version of the MIPS R4300i, a reduced-cost embedded 64-bit MIPS processor.",
+    "link": "https://en.wikipedia.org/wiki/Nintendo_64"
   },
   {
     "name": "GameCube",
@@ -84,7 +95,8 @@ const consoles = [
     "cpu": "IBM Gekko",
     "cores": "1",
     "clock": "486 MHz",
-    "description": "A custom derivative of the 32-bit IBM PowerPC 750."
+    "description": "A custom derivative of the 32-bit IBM PowerPC 750.",
+    "link": "https://en.wikipedia.org/wiki/GameCube"
   },
   {
     "name": "Wii",
@@ -94,7 +106,8 @@ const consoles = [
     "cpu": "IBM Broadway",
     "cores": "1",
     "clock": "729 MHz",
-    "description": "A faster version of the Gekko processor used in the GameCube."
+    "description": "A faster version of the Gekko processor used in the GameCube.",
+    "link": "https://en.wikipedia.org/wiki/Wii"
   },
   {
     "name": "Wii U",
@@ -104,7 +117,8 @@ const consoles = [
     "cpu": "IBM Espresso",
     "cores": "3",
     "clock": "1.24 GHz",
-    "description": "A continued evolution of the PowerPC cores used in the GameCube and the Wii, now in a triple-core design."
+    "description": "A continued evolution of the PowerPC cores used in the GameCube and the Wii, now in a triple-core design.",
+    "link": "https://en.wikipedia.org/wiki/Wii_U"
   },
   {
     "name": "Switch",
@@ -114,7 +128,8 @@ const consoles = [
     "cpu": "NVidia Tegra X1",
     "cores": "4 (technically 8, but only 4 enabled)",
     "clock": "1.02 GHz",
-    "description": "A system-on-a-chip combining 4 high-performance ARM Cortex-A57 cores, 4 low-power ARM Cortex-A53 cores (disabled), and onboard NVidia graphics."
+    "description": "A system-on-a-chip combining 4 high-performance ARM Cortex-A57 cores, 4 low-power ARM Cortex-A53 cores (disabled), and onboard NVidia graphics.",
+    "link": "https://en.wikipedia.org/wiki/Nintendo_Switch"
   },
   {
     "name": "PlayStation",
@@ -124,7 +139,8 @@ const consoles = [
     "cpu": "MIPS R3000",
     "cores": "1",
     "clock": "33 MHz",
-    "description": "An early and widely-used 32-bit MIPS design."
+    "description": "An early and widely-used 32-bit MIPS design.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_(console)"
   },
   {
     "name": "PlayStation 2",
@@ -135,7 +151,8 @@ const consoles = [
     "cores": "1",
     "clock": "295 MHz",
     "coprocessors": "2 Vector Processing Units",
-    "description": "A custom chip combining a general-purpose 64-bit CPU core based on the MIPS R5900 with 2 custom vector-processing cores."
+    "description": "A custom chip combining a general-purpose 64-bit CPU core based on the MIPS R5900 with 2 custom vector-processing cores.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_2"
   },
   {
     "name": "PlayStation 3",
@@ -146,7 +163,8 @@ const consoles = [
     "cores": "1",
     "clock": "3.2 GHz",
     "coprocessors": "8 SPE cores (1 disabled)",
-    "description": "An ambitious design combining a single general-purpose 64-bit PowerPC CPU core with 8 \"Synergistic Processing Element\" coprocessors."
+    "description": "An ambitious design combining a single general-purpose 64-bit PowerPC CPU core with 8 \"Synergistic Processing Element\" coprocessors.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_3"
   },
   {
     "name": "PlayStation 4",
@@ -156,7 +174,8 @@ const consoles = [
     "cpu": "AMD Jaguar",
     "cores": "8",
     "clock": "1.6 GHz (2.13 GHz in PS4 Pro)",
-    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture."
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_4"
   },
   {
     "name": "PlayStation 5",
@@ -166,7 +185,8 @@ const consoles = [
     "cpu": "AMD Zen 2",
     "cores": "8",
     "clock": "3.5 GHz",
-    "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
+    "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_5"
   },
   {
     "name": "Xbox",
@@ -176,7 +196,8 @@ const consoles = [
     "cpu": "Intel Pentium 3",
     "cores": "1",
     "clock": "733 MHz",
-    "description": "An Intel Pentium 3 \"Coppermine\" processor, much like those used in contemporary PCs."
+    "description": "An Intel Pentium 3 \"Coppermine\" processor, much like those used in contemporary PCs.",
+    "link": "https://en.wikipedia.org/wiki/Xbox_(console)"
   },
   {
     "name": "Xbox 360",
@@ -186,7 +207,8 @@ const consoles = [
     "cpu": "IBM Xenon",
     "cores": "3",
     "clock": "3.2 GHz",
-    "description": "A triple-core 64-bit PowerPC design from IBM, each core is very similar to the main CPU core in the PS3's Cell processor."
+    "description": "A triple-core 64-bit PowerPC design from IBM, each core is very similar to the main CPU core in the PS3's Cell processor.",
+    "link": "https://en.wikipedia.org/wiki/Xbox_360"
   },
   {
     "name": "Xbox One",
@@ -196,7 +218,8 @@ const consoles = [
     "cpu": "AMD Jaguar",
     "cores": "8",
     "clock": "1.75 GHz (2.3 GHz in Xbox One X)",
-    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture."
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture.",
+    "link": "https://en.wikipedia.org/wiki/Xbox_One"
   },
   {
     "name": "Xbox Series X",
@@ -206,7 +229,8 @@ const consoles = [
     "cpu": "AMD Zen 2",
     "cores": "8",
     "clock": "3.8 GHz (3.6 GHz with SMT enabled)",
-    "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
+    "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
+    "link": "https://en.wikipedia.org/wiki/Xbox_Series_X"
   },
   {
     "name": "2600",
@@ -216,7 +240,8 @@ const consoles = [
     "cpu": "MOS Technology 6507",
     "cores": "1",
     "clock": "1.19 MHz",
-    "description": "A cheaper version of the 6502 in a 28-pin DIP package."
+    "description": "A cheaper version of the 6502 in a 28-pin DIP package.",
+    "link": "https://en.wikipedia.org/wiki/Atari_2600"
   },
   {
     "name": "5200",
@@ -226,7 +251,8 @@ const consoles = [
     "cpu": "MOS Technology 6502C",
     "cores": "1",
     "clock": "1.79 MHz",
-    "description": "A variant of the 6502 supporting a higher clockspeed and video sync."
+    "description": "A variant of the 6502 supporting a higher clockspeed and video sync.",
+    "link": "https://en.wikipedia.org/wiki/Atari_5200"
   },
   {
     "name": "7800",
@@ -236,7 +262,8 @@ const consoles = [
     "cpu": "MOS Technology 6502C",
     "cores": "1",
     "clock": "1.79 MHz",
-    "description": "A variant of the 6502 supporting a higher clockspeed and video sync."
+    "description": "A variant of the 6502 supporting a higher clockspeed and video sync.",
+    "link": "https://en.wikipedia.org/wiki/Atari_7800"
   },
   {
     "name": "Jaguar",
@@ -248,7 +275,8 @@ const consoles = [
     "cores": "1",
     "clock": "13.295 MHz",
     "coprocessors": "\"Tom\" GPU & \"Jerry\" DSP",
-    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Paired with the specialized \"Tom\" and \"Jerry\" chips for video and audio processing, respectively."
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Paired with the specialized \"Tom\" and \"Jerry\" chips for video and audio processing, respectively.",
+    "link": "https://en.wikipedia.org/wiki/Atari_Jaguar"
   },
   {
     "name": "SG-1000",
@@ -258,7 +286,8 @@ const consoles = [
     "cpu": "Zilog Z80",
     "cores": "1",
     "clock": "3.58 MHz",
-    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems."
+    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems.",
+    "link": "https://en.wikipedia.org/wiki/SG-1000"
   },
   {
     "name": "Master System/Mark III",
@@ -268,7 +297,8 @@ const consoles = [
     "cpu": "Zilog Z80A",
     "cores": "1",
     "clock": "4 MHz",
-    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems."
+    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems.",
+    "link": "https://en.wikipedia.org/wiki/Master_System"
   },
   {
     "name": "Genesis/Mega Drive",
@@ -278,7 +308,8 @@ const consoles = [
     "cpu": "Motorola 68000",
     "cores": "1",
     "clock": "7.6 MHz",
-    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers."
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers.",
+    "link": "https://en.wikipedia.org/wiki/Sega_Genesis"
   },
   {
     "name": "Saturn",
@@ -288,7 +319,8 @@ const consoles = [
     "cpu": "Hitachi SH-2",
     "cores": "2",
     "clock": "28.6 MHz",
-    "description": "Dual Hitachi SH-2 processors using the proprietary SuperH RISC instruction set."
+    "description": "Dual Hitachi SH-2 processors using the proprietary SuperH RISC instruction set.",
+    "link": "https://en.wikipedia.org/wiki/Sega_Saturn"
   },
   {
     "name": "Dreamcast",
@@ -299,6 +331,7 @@ const consoles = [
     "cpu": "Hitachi SH-4",
     "cores": "1",
     "clock": "200 MHz",
-    "description": "Hitachi SH-4 using the proprietary SuperH RISC instruction set. Designed for multimedia with an enhanced FPU."
+    "description": "Hitachi SH-4 using the proprietary SuperH RISC instruction set. Designed for multimedia with an enhanced FPU.",
+    "link": "https://en.wikipedia.org/wiki/Dreamcast"
   }
 ];
