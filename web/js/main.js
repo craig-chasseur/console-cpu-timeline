@@ -8,6 +8,16 @@ function patchArchColors() {
   }
 }
 
+function scaleTimeline() {
+  var manufacturers = new Set();
+  for (const thisConsole of consoles) {
+    manufacturers.add(thisConsole.manufacturer);
+  }
+
+  var timeline = document.getElementById('timeline');
+  timeline.style.height = (manufacturers.size * 54 + 58) + "px";
+}
+
 function generateTooltip(consoleInfo) {
   return "<div class=\"tooltip\">" +
           "<p>" +
@@ -103,6 +113,7 @@ function fillArchTable() {
 
 function render() {
   patchArchColors();
+  scaleTimeline();
   drawChart();
   fillArchTable();
 }

@@ -6,10 +6,6 @@ body {
   text-align: center;
 }
 
-#timeline {
-  height: 220px;
-}
-
 div.tooltip {
   font-size: medium;
   max-width: 50ch;
