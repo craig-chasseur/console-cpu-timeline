@@ -1,21 +1,32 @@
 const globalEndDate = new Date(2025, 0, 1);
 
-// Colorblind-friendly 7-color palette from
+// Colorblind-friendly 12-color palette from
 // http://mkweb.bcgsc.ca/colorblind/palettes.mhtml
 const colors = [
-  "#2271B2",
-  "#3DB7E9",
-  "#F748A5",
-  "#359B73",
-  "#d55e00",
-  "#e69f00",
-  "#f0e442"
+  "#9F0162",
+  "#009F81",
+  "#FF5AAF",
+  "#00FCCF",
+  "#8400CD",
+  "#008DF9",
+  "#00C2F9",
+  "#FFB2FD",
+  "#A40122",
+  "#E20134",
+  "#FF6E3A",
+  "#FFC33B"
 ];
 
 // Non-const because colors will be patched in at runtime.
 var arches = {
   "6502": {
     "name": "MOS Technology 6502 and clones/derivatives"
+  },
+  "z80": {
+    "name": "Zilog Z80"
+  },
+  "m68k": {
+    "name": "Motorola 680x0 series"
   },
   "x86": {
     "name": "Intel/AMD x86"
@@ -28,6 +39,9 @@ var arches = {
   },
   "arm": {
     "name": "ARM"
+  },
+  "sh": {
+    "name": "Hitachi SuperH"
   }
 };
 
@@ -208,4 +222,49 @@ const consoles = [
     "coprocessors": null,
     "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs."
   },
+  {
+    "name": "Master System/Mark III",
+    "manufacturer": "Sega",
+    "release_date": "1985-10-20",
+    "arch": "z80",
+    "cpu": "Zilog Z80A",
+    "cores": "1",
+    "clock": "4 MHz",
+    "coprocessors": null,
+    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems."
+  },
+  {
+    "name": "Genesis/Mega Drive",
+    "manufacturer": "Sega",
+    "release_date": "1988-10-29",
+    "arch": "m68k",
+    "cpu": "Motorola 68000",
+    "cores": "1",
+    "clock": "7.6 MHz",
+    "coprocessors": null,
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers."
+  },
+  {
+    "name": "Saturn",
+    "manufacturer": "Sega",
+    "release_date": "1994-11-22",
+    "arch": "sh",
+    "cpu": "Hitachi SH-2",
+    "cores": "2",
+    "clock": "28.6 MHz",
+    "coprocessors": null,
+    "description": "Dual Hitachi SH-2 processors using the proprietary SuperH RISC instruction set."
+  },
+  {
+    "name": "Dreamcast",
+    "manufacturer": "Sega",
+    "release_date": "1998-11-27",
+    "eol": "2001-03-31",
+    "arch": "sh",
+    "cpu": "Hitachi SH-4",
+    "cores": "1",
+    "clock": "200 MHz",
+    "coprocessors": null,
+    "description": "Hitachi SH-4 using the proprietary SuperH RISC instruction set. Designed for multimedia with an enhanced FPU."
+  }
 ];

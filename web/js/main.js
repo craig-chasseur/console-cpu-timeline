@@ -37,8 +37,10 @@ function generateDataRows() {
     var thisConsole = consoles[i];
 
     var endDate = globalEndDate;
-    if (i < consoles.length - 1 &&
-        thisConsole.manufacturer == consoles[i+1].manufacturer) {
+    if ("eol" in thisConsole) {
+      endDate = new Date(Date.parse(thisConsole.eol));
+    } else if (i < consoles.length - 1 &&
+               thisConsole.manufacturer == consoles[i+1].manufacturer) {
       endDate = new Date(Date.parse(consoles[i+1].release_date));
       endDate.setMonth(endDate.getMonth() - 2);
     }
