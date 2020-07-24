@@ -60,11 +60,27 @@ function drawChart() {
   fillArchTable();
 }
 
+// This doesn't exactly match how google.charts automatically colors bar labels
+// but it looks OK.
+function contrastTextColor(backgroundColor) {
+  const rgbStrs =
+      /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(backgroundColor);
+  const red = parseInt(rgbStrs[1], 16);
+  const green = parseInt(rgbStrs[2], 16);
+  const blue = parseInt(rgbStrs[3], 16);
+
+  // Using W3C accessibility formula:
+  // https://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+  const brightness = ((red * 299) + (green * 587) + (blue * 114)) / 1000;
+  return brightness >= 128 ? "#000000" : "#ffffff";
+}
+
 function makeArchRow(archInfo) {
   var row = document.createElement("tr");
 
   var nameCell = document.createElement("td");
   nameCell.style.backgroundColor = archInfo.color;
+  nameCell.style.color = contrastTextColor(archInfo.color);
   var nameText = document.createTextNode(archInfo.name);
   nameCell.appendChild(nameText);
   row.appendChild(nameCell);
