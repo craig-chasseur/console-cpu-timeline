@@ -2,19 +2,19 @@ google.charts.load('current', {'packages':['timeline']});
 google.charts.setOnLoadCallback(render);
 
 function patchArchColors() {
-  var colorIdx = 0;
-  for (var archInfo of Object.values(arches)) {
+  let colorIdx = 0;
+  for (let archInfo of Object.values(arches)) {
     archInfo.color = colors[colorIdx++];
   }
 }
 
 function scaleTimeline() {
-  var manufacturers = new Set();
+  let manufacturers = new Set();
   for (const thisConsole of consoles) {
     manufacturers.add(thisConsole.manufacturer);
   }
 
-  var timeline = document.getElementById('timeline');
+  let timeline = document.getElementById('timeline');
   timeline.style.height = (manufacturers.size * 54 + 58) + "px";
 }
 
@@ -32,11 +32,11 @@ function generateTooltip(consoleInfo) {
 }
 
 function generateDataRows() {
-  var dataRows = [];
-  for (var i = 0; i < consoles.length; i++) {
-    var thisConsole = consoles[i];
+  let dataRows = [];
+  for (let i = 0; i < consoles.length; i++) {
+    let thisConsole = consoles[i];
 
-    var endDate = globalEndDate;
+    let endDate = globalEndDate;
     if ("eol" in thisConsole) {
       endDate = new Date(Date.parse(thisConsole.eol));
     } else if (i < consoles.length - 1 &&
@@ -45,7 +45,7 @@ function generateDataRows() {
       endDate.setMonth(endDate.getMonth() - 2);
     }
 
-    var style = "color: " + arches[thisConsole.arch].color + ";"
+    let style = "color: " + arches[thisConsole.arch].color + ";"
 
     dataRows.push([thisConsole.manufacturer, thisConsole.name,
                    generateTooltip(thisConsole), style,
@@ -55,9 +55,9 @@ function generateDataRows() {
 }
 
 function drawChart() {
-  var container = document.getElementById('timeline');
-  var chart = new google.visualization.Timeline(container);
-  var dataTable = new google.visualization.DataTable();
+  let container = document.getElementById('timeline');
+  let chart = new google.visualization.Timeline(container);
+  let dataTable = new google.visualization.DataTable();
 
   dataTable.addColumn({ type: 'string', id: 'Manufacturer' });
   dataTable.addColumn({ type: 'string', id: 'Console' });
@@ -67,7 +67,7 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'End' });
 
   dataTable.addRows(generateDataRows());
-  var options = {
+  let options = {
     timeline: {
       rowLabelStyle: { fontSize: 16 },
       barLabelStyle: { fontSize: 16 }
@@ -93,12 +93,12 @@ function contrastTextColor(backgroundColor) {
 }
 
 function makeArchRow(archInfo) {
-  var row = document.createElement("tr");
+  let row = document.createElement("tr");
 
-  var nameCell = document.createElement("td");
+  let nameCell = document.createElement("td");
   nameCell.style.backgroundColor = archInfo.color;
   nameCell.style.color = contrastTextColor(archInfo.color);
-  var nameText = document.createTextNode(archInfo.name);
+  let nameText = document.createTextNode(archInfo.name);
   nameCell.appendChild(nameText);
   row.appendChild(nameCell);
 
@@ -106,7 +106,7 @@ function makeArchRow(archInfo) {
 }
 
 function fillArchTable() {
-  var archTable = document.getElementById("legend_body");
+  let archTable = document.getElementById("legend_body");
   console.log(arches);
   for (const archInfo of Object.values(arches)) {
     archTable.appendChild(makeArchRow(archInfo));

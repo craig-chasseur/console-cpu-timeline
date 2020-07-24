@@ -18,7 +18,7 @@ const colors = [
 ];
 
 // Non-const because colors will be patched in at runtime.
-var arches = {
+let arches = {
   "6502": {
     "name": "MOS Technology 6502 and clones/derivatives"
   },
