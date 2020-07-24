@@ -54,8 +54,16 @@ function generateDataRows() {
   return dataRows;
 }
 
-// `chart` at global namespace because it is shared by selectBar and drawChart.
-let chart;
+// Variables at global namespace because they are shared across functions.
+let chart = null;
+let dataTable = null;
+const chartOptions = {
+  timeline: {
+    rowLabelStyle: { fontSize: 16 },
+    barLabelStyle: { fontSize: 16 }
+  },
+  tooltip: { isHtml: true }
+};
 
 function selectBar(evt) {
   const selection = chart.getSelection();
@@ -67,7 +75,7 @@ function selectBar(evt) {
 function drawChart() {
   let container = document.getElementById('timeline');
   chart = new google.visualization.Timeline(container);
-  let dataTable = new google.visualization.DataTable();
+  dataTable = new google.visualization.DataTable();
 
   dataTable.addColumn({ type: 'string', id: 'Manufacturer' });
   dataTable.addColumn({ type: 'string', id: 'Console' });
@@ -77,16 +85,14 @@ function drawChart() {
   dataTable.addColumn({ type: 'date', id: 'End' });
 
   dataTable.addRows(generateDataRows());
-  let options = {
-    timeline: {
-      rowLabelStyle: { fontSize: 16 },
-      barLabelStyle: { fontSize: 16 }
-    },
-    tooltip: { isHtml: true }
-  };
-  chart.draw(dataTable, options);
+  chart.draw(dataTable, chartOptions);
 
   google.visualization.events.addListener(chart, "select", selectBar);
+}
+
+function reflow() {
+  chart.clearChart();
+  chart.draw(dataTable, chartOptions);
 }
 
 // This doesn't exactly match how google.charts automatically colors bar labels
@@ -136,4 +142,5 @@ function render() {
   scaleTimeline();
   drawChart();
   fillArchTable();
+  window.addEventListener("resize", reflow);
 }
