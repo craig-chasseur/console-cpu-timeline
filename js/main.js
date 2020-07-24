@@ -54,9 +54,19 @@ function generateDataRows() {
   return dataRows;
 }
 
+// `chart` at global namespace because it is shared by selectBar and drawChart.
+let chart;
+
+function selectBar(evt) {
+  const selection = chart.getSelection();
+  for (const item of selection) {
+    window.open(consoles[item.row].link);
+  }
+}
+
 function drawChart() {
   let container = document.getElementById('timeline');
-  let chart = new google.visualization.Timeline(container);
+  chart = new google.visualization.Timeline(container);
   let dataTable = new google.visualization.DataTable();
 
   dataTable.addColumn({ type: 'string', id: 'Manufacturer' });
@@ -75,6 +85,8 @@ function drawChart() {
     tooltip: { isHtml: true }
   };
   chart.draw(dataTable, options);
+
+  google.visualization.events.addListener(chart, "select", selectBar);
 }
 
 // This doesn't exactly match how google.charts automatically colors bar labels
@@ -97,9 +109,16 @@ function makeArchRow(archInfo) {
 
   let nameCell = document.createElement("td");
   nameCell.style.backgroundColor = archInfo.color;
-  nameCell.style.color = contrastTextColor(archInfo.color);
+
+  let link = document.createElement("a");
+  link.href = archInfo.link;
+  link.target = "_blank";
+  link.style.color = contrastTextColor(archInfo.color);
+
   let nameText = document.createTextNode(archInfo.name);
-  nameCell.appendChild(nameText);
+
+  link.appendChild(nameText);
+  nameCell.appendChild(link);
   row.appendChild(nameCell);
 
   return row;
@@ -107,7 +126,6 @@ function makeArchRow(archInfo) {
 
 function fillArchTable() {
   let archTable = document.getElementById("legend_body");
-  console.log(arches);
   for (const archInfo of Object.values(arches)) {
     archTable.appendChild(makeArchRow(archInfo));
   }
