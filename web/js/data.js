@@ -1,32 +1,32 @@
 const globalEndDate = new Date(2025, 0, 1);
 
-const archList = [
-  "6502",
-  "x86",
-  "mips",
-  "ppc",
-  "arm"
+// Colorblind-friendly 7-color palette from
+// http://mkweb.bcgsc.ca/colorblind/palettes.mhtml
+const colors = [
+  "#2271B2",
+  "#3DB7E9",
+  "#F748A5",
+  "#359B73",
+  "#d55e00",
+  "#e69f00",
+  "#f0e442"
 ];
 
-const archInfo = {
+// Non-const because colors will be patched in at runtime.
+var arches = {
   "6502": {
-    "color": "#888888",
     "name": "MOS Technology 6502 and clones/derivatives"
   },
   "x86": {
-    "color": "#0000ff",
     "name": "Intel/AMD x86"
   },
   "mips": {
-    "color": "#ff00ff",
     "name": "MIPS"
   },
   "ppc": {
-    "color": "#00ff00",
     "name": "PowerPC"
   },
   "arm": {
-    "color": "#ff0000",
     "name": "ARM"
   }
 };

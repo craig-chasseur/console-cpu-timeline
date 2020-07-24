@@ -1,5 +1,12 @@
 google.charts.load('current', {'packages':['timeline']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(render);
+
+function patchArchColors() {
+  var colorIdx = 0;
+  for (var archInfo of Object.values(arches)) {
+    archInfo.color = colors[colorIdx++];
+  }
+}
 
 function generateTooltip(consoleInfo) {
   return "<div class=\"tooltip\">" +
@@ -26,7 +33,7 @@ function generateDataRows() {
       endDate.setMonth(endDate.getMonth() - 2);
     }
 
-    var style = "color: " + archInfo[thisConsole.arch].color + ";"
+    var style = "color: " + arches[thisConsole.arch].color + ";"
 
     dataRows.push([thisConsole.manufacturer, thisConsole.name,
                    generateTooltip(thisConsole), style,
@@ -56,8 +63,6 @@ function drawChart() {
     tooltip: { isHtml: true }
   };
   chart.draw(dataTable, options);
-
-  fillArchTable();
 }
 
 // This doesn't exactly match how google.charts automatically colors bar labels
@@ -90,7 +95,14 @@ function makeArchRow(archInfo) {
 
 function fillArchTable() {
   var archTable = document.getElementById("legend_body");
-  for (arch of archList) {
-    archTable.appendChild(makeArchRow(archInfo[arch]));
+  console.log(arches);
+  for (const archInfo of Object.values(arches)) {
+    archTable.appendChild(makeArchRow(archInfo));
   }
+}
+
+function render() {
+  patchArchColors();
+  drawChart();
+  fillArchTable();
 }
