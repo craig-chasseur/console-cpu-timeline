@@ -9,7 +9,7 @@ const colors = [
   "#00FCCF",
   "#8400CD",
   "#008DF9",
-  "#00C2F9",
+//  "#00C2F9",  Contrast between PowerPC and ARM better with this omitted.
   "#FFB2FD",
   "#A40122",
   "#E20134",
