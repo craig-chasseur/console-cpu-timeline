@@ -1,9 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
+#titlebar {
+  text-align: center;
+}
+
 #timeline {
   height: 220px;
 }
 
 div.tooltip {
-  font-family: sans-serif;
   font-size: medium;
   max-width: 50ch;
   padding: 0ch 2ch;
@@ -19,8 +26,10 @@ span.cpu {
 }
 
 #legend td, th {
-  font-family: sans-serif;
-  font-size: medium;
   border: 1px solid #aaaaaa;
   padding: 8px;
+}
+
+#footer {
+  text-align: center;
 }
