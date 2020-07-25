@@ -115,15 +115,17 @@ class TimelineSelector {
   }
 
   select(selectedName) {
+    let selectedTimeline = null;
     for (const name in this.timelineMap) {
       if (selectedName == name) {
         this.selectorMap[name].classList.add("selected");
-        this.timelineMap[name].show();
+        selectedTimeline = this.timelineMap[name];
       } else {
         this.selectorMap[name].classList.remove("selected");
         this.timelineMap[name].hide();
       }
     }
+    selectedTimeline.show();
   }
 
   buildSelectorMap(tableHeaderRow) {
