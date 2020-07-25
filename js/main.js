@@ -51,6 +51,15 @@ class Timeline {
     }
   }
 
+  hide() {
+    this.domContainer.style.display = "none";
+  }
+
+  show() {
+    this.domContainer.style.display = "block";
+    this.redraw();
+  }
+
   static calculateHeight(consoles) {
     let manufacturers = new Set();
     for (const thisConsole of consoles) {
