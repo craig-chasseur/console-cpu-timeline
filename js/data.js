@@ -334,3 +334,123 @@ const consoles = [
     "link": "https://en.wikipedia.org/wiki/Dreamcast"
   }
 ];
+
+const handhelds = [
+  {
+    "name": "Game Boy",
+    "manufacturer": "Nintendo",
+    "release_date": "1989-04-21",
+    "arch": "z80",
+    "cpu": "Sharp LR35902",
+    "cores": "1",
+    "clock": "4.19 MHz",
+    "description": "A custom CPU mostly based on the Z80, but with a reduced register set like the Intel 8080 and memory-mapped I/O.",
+    "link": "https://en.wikipedia.org/wiki/Game_Boy"
+  },
+  {
+    "name": "Game Boy Color",
+    "manufacturer": "Nintendo",
+    "release_date": "1998-10-21",
+    "arch": "z80",
+    "cpu": "Sharp LR35902",
+    "cores": "1",
+    "clock": "8.38 MHz",
+    "description": "The same custom CPU (based on the Z80) at the original Game Boy, clocked twice as fast.",
+    "link": "https://en.wikipedia.org/wiki/Game_Boy_Color"
+  },
+  {
+    "name": "Game Boy Advance",
+    "manufacturer": "Nintendo",
+    "release_date": "2001-03-21",
+    "arch": "arm",
+    "cpu": "ARM7TDMI",
+    "cores": "1",
+    "clock": "16.78 MHz",
+    "description": "A widely-used 32-bit embedded ARM core.",
+    "link": "https://en.wikipedia.org/wiki/Game_Boy_Advance"
+  },
+  {
+    "name": "Nintendo DS",
+    "manufacturer": "Nintendo",
+    "release_date": "2004-11-21",
+    "arch": "arm",
+    "cpu": "ARM946E-S",
+    "cores": "1",
+    "clock": "67 MHz (133 MHz in DSi)",
+    "coprocessors": "ARM7TDMI at 33 MHz",
+    "description": "A widely-used 32-bit embedded ARM core. The slower ARM7TDMI is used to for sound & WiFi support, and to run GBA games for backwards compatibility.",
+    "link": "https://en.wikipedia.org/wiki/Nintendo_DS",
+  },
+  {
+    "name": "Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "release_date": "2011-02-26",
+    "arch": "arm",
+    "cpu": "ARM11 MPCore",
+    "cores": "2",
+    "clock": "268 MHz",
+    "coprocessors": "ARM9",
+    "description": "A dual-core 32-bit ARM processor with SIMD instructions for multimedia. A slower ARM9 is used for backwards compatibilty with DS games.",
+    "link": "https://en.wikipedia.org/wiki/Nintendo_3DS",
+  },
+  {
+    "name": "New Nintendo 3DS",
+    "manufacturer": "Nintendo",
+    "release_date": "2014-10-1",
+    "eol": "2019-12-31",
+    "arch": "arm",
+    "cpu": "ARM11 MPCore",
+    "cores": "4",
+    "clock": "804 MHz",
+    "coprocessors": "ARM9",
+    "description": "A quad-core 32-bit ARM processor with SIMD instructions for multimedia. The architecture is the same as the 3DS, but with twice as many cores and a higher clock speed. A slower ARM9 is still included for backwards compatibilty with DS games.",
+    "link": "https://en.wikipedia.org/wiki/New_Nintendo_3DS",
+  },
+  {
+    "name": "PlayStation Portable",
+    "manufacturer": "Sony",
+    "release_date": "2004-12-12",
+    "arch": "mips",
+    "cpu": "MIPS R4000",
+    "cores": "1",
+    "clock": "333 MHz",
+    "coprocessors": "\"Media Engine\" MIPS R4000-based core with multimedia codecs & programmable DSP.",
+    "description": "Custom \"Allegrex\" system-on-a-chip combining a main CPU based on the MIPS R4000 core (+vector FPU) with a \"Media Engine\" coprocessor also based on the R4000.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_Portable"
+  },
+  {
+    "name": "PlayStation Vita",
+    "manufacturer": "Sony",
+    "release_date": "2011-12-17",
+    "eol": "2019-03-01",
+    "arch": "arm",
+    "cpu": "ARM Cortex-A9 MPCore",
+    "cores": "4",
+    "clock": "333 MHz (444 MHz w/ WiFi disabled)",
+    "description": "High-performance 32-bit quad-core application processor from ARM. The CPU reportedly supports a clock speed over 1 GHz, but it is underclocked to save power.",
+    "link": "https://en.wikipedia.org/wiki/PlayStation_Vita"
+  },
+  {
+    "name": "Game Gear",
+    "manufacturer": "Sega",
+    "release_date": "1990-11-06",
+    "arch": "z80",
+    "cpu": "Zilog Z80",
+    "cores": "1",
+    "clock": "3.5 MHz",
+    "description": "Zilog's original flagship CPU, software-compatible with the Intel 8080 and widely used in embedded systems. Hardware specs are very similar to the Master System.",
+    "link": "https://en.wikipedia.org/wiki/Game_Gear"
+  },
+  {
+    "name": "Genesis Nomad",
+    "manufacturer": "Sega",
+    "release_date": "1995-10-01",
+    "eol": "1999-12-31",
+    "arch": "m68k",
+    "cpu": "Motorola 68000",
+    "cores": "1",
+    "clock": "7.6 MHz",
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers. The same model as used in the original home version of the Genesis.",
+    "link": "https://en.wikipedia.org/wiki/Genesis_Nomad"
+  }
+];
