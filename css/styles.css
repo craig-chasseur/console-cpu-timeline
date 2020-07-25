@@ -16,6 +16,7 @@ div.consolename {
   font-weight: bold;
   font-style: italic;
   text-align: center;
+  padding-bottom: 0.5ch;
 }
 
 span.cpu {
