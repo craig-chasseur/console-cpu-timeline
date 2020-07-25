@@ -17,8 +17,7 @@ const colors = [
   "#FFC33B"
 ];
 
-// Non-const because colors will be patched in at runtime.
-let arches = {
+const arches = {
   "6502": {
     "name": "MOS Technology 6502 and clones/derivatives",
     "link": "https://en.wikipedia.org/wiki/MOS_Technology_6502"

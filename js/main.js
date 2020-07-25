@@ -1,62 +1,6 @@
 google.charts.load('current', {'packages':['timeline']});
 google.charts.setOnLoadCallback(render);
 
-function patchArchColors() {
-  let colorIdx = 0;
-  for (let archInfo of Object.values(arches)) {
-    archInfo.color = colors[colorIdx++];
-  }
-}
-
-function scaleTimeline() {
-  let manufacturers = new Set();
-  for (const thisConsole of consoles) {
-    manufacturers.add(thisConsole.manufacturer);
-  }
-
-  let timeline = document.getElementById('timeline');
-  timeline.style.height = (manufacturers.size * 54 + 58) + "px";
-}
-
-function generateTooltip(consoleInfo) {
-  return "<div class=\"tooltip\">" +
-          "<p>" +
-            "<span class=\"cpu\">CPU: " + consoleInfo.cpu + "</span>" +
-            "<br>Cores: " + consoleInfo.cores +
-            "<br>Clock speed: " + consoleInfo.clock +
-            ("coprocessors" in consoleInfo ?
-                "<br>Coprocessors: " + consoleInfo.coprocessors : "") +
-          "</p>" +
-          "<p>" + consoleInfo.description + "</p>" +
-          "</div>";
-}
-
-function generateDataRows() {
-  let dataRows = [];
-  for (let i = 0; i < consoles.length; i++) {
-    let thisConsole = consoles[i];
-
-    let endDate = globalEndDate;
-    if ("eol" in thisConsole) {
-      endDate = new Date(Date.parse(thisConsole.eol));
-    } else if (i < consoles.length - 1 &&
-               thisConsole.manufacturer == consoles[i+1].manufacturer) {
-      endDate = new Date(Date.parse(consoles[i+1].release_date));
-      endDate.setMonth(endDate.getMonth() - 2);
-    }
-
-    let style = "color: " + arches[thisConsole.arch].color + ";"
-
-    dataRows.push([thisConsole.manufacturer, thisConsole.name,
-                   generateTooltip(thisConsole), style,
-                   new Date(Date.parse(thisConsole.release_date)), endDate]);
-  }
-  return dataRows;
-}
-
-// Variables at global namespace because they are shared across functions.
-let chart = null;
-let dataTable = null;
 const chartOptions = {
   timeline: {
     rowLabelStyle: { fontSize: 16 },
@@ -65,34 +9,100 @@ const chartOptions = {
   tooltip: { isHtml: true }
 };
 
-function selectBar(evt) {
-  const selection = chart.getSelection();
-  for (const item of selection) {
-    window.open(consoles[item.row].link);
+class Timeline {
+  constructor(consoles, arches, domContainer) {
+    this.consoles = consoles;
+
+    this.domContainer = domContainer;
+    this.containerHeight = Timeline.calculateHeight(consoles);
+
+    this.dataTable = new google.visualization.DataTable();
+    this.dataTable.addColumn({ type: 'string', id: 'Manufacturer' });
+    this.dataTable.addColumn({ type: 'string', id: 'Console' });
+    this.dataTable.addColumn(
+        { type: 'string', role: 'tooltip', p: { html: true} });
+    this.dataTable.addColumn({ type: 'string', role: 'style' });
+    this.dataTable.addColumn({ type: 'date', id: 'Start' });
+    this.dataTable.addColumn({ type: 'date', id: 'End' });
+  
+    this.dataTable.addRows(
+        Timeline.generateDataRows(consoles, arches, globalEndDate));
+  }
+
+  draw() {
+    this.domContainer.style.height = this.containerHeight;
+    this.chart = new google.visualization.Timeline(this.domContainer);
+    this.chart.draw(this.dataTable, chartOptions);
+
+    let self = this;
+    google.visualization.events.addListener(
+        this.chart, "select", function() { self.selectBar(); });
+  }
+
+  redraw() {
+    this.chart.clearChart();
+    this.chart.draw(this.dataTable, chartOptions);
+  }
+
+  selectBar() {
+    const selection = this.chart.getSelection();
+    for (const item of selection) {
+      window.open(this.consoles[item.row].link);
+    }
+  }
+
+  static calculateHeight(consoles) {
+    let manufacturers = new Set();
+    for (const thisConsole of consoles) {
+      manufacturers.add(thisConsole.manufacturer);
+    }
+
+    return (manufacturers.size * 54 + 58) + "px";
+  }
+
+  static generateTooltip(consoleInfo) {
+    return "<div class=\"tooltip\">" +
+           "<p>" +
+             "<span class=\"cpu\">CPU: " + consoleInfo.cpu + "</span>" +
+             "<br>Cores: " + consoleInfo.cores +
+             "<br>Clock speed: " + consoleInfo.clock +
+             ("coprocessors" in consoleInfo ?
+                 "<br>Coprocessors: " + consoleInfo.coprocessors : "") +
+           "</p>" +
+           "<p>" + consoleInfo.description + "</p>" +
+           "</div>";
+  }
+
+  static generateDataRows(consoles, arches, globalEndDate) {
+    let dataRows = [];
+    for (let i = 0; i < consoles.length; i++) {
+      let thisConsole = consoles[i];
+
+      let endDate = globalEndDate;
+      if ("eol" in thisConsole) {
+        endDate = new Date(Date.parse(thisConsole.eol));
+      } else if (i < consoles.length - 1 &&
+                 thisConsole.manufacturer == consoles[i+1].manufacturer) {
+        endDate = new Date(Date.parse(consoles[i+1].release_date));
+        endDate.setMonth(endDate.getMonth() - 2);
+      }
+
+      let style = "color: " + arches[thisConsole.arch].color + ";"
+
+      dataRows.push([thisConsole.manufacturer, thisConsole.name,
+                     Timeline.generateTooltip(thisConsole), style,
+                     new Date(Date.parse(thisConsole.release_date)), endDate]);
+    }
+    return dataRows;
   }
 }
 
-function drawChart() {
-  let container = document.getElementById('timeline');
-  chart = new google.visualization.Timeline(container);
-  dataTable = new google.visualization.DataTable();
-
-  dataTable.addColumn({ type: 'string', id: 'Manufacturer' });
-  dataTable.addColumn({ type: 'string', id: 'Console' });
-  dataTable.addColumn({ type: 'string', role: 'tooltip', p: { html: true} });
-  dataTable.addColumn({ type: 'string', role: 'style' });
-  dataTable.addColumn({ type: 'date', id: 'Start' });
-  dataTable.addColumn({ type: 'date', id: 'End' });
-
-  dataTable.addRows(generateDataRows());
-  chart.draw(dataTable, chartOptions);
-
-  google.visualization.events.addListener(chart, "select", selectBar);
-}
-
-function reflow() {
-  chart.clearChart();
-  chart.draw(dataTable, chartOptions);
+function patchArchColors(arches) {
+  let colorIdx = 0;
+  for (let archInfo of Object.values(arches)) {
+    archInfo.color = colors[colorIdx++];
+  }
+  return arches;
 }
 
 // This doesn't exactly match how google.charts automatically colors bar labels
@@ -130,7 +140,7 @@ function makeArchRow(archInfo) {
   return row;
 }
 
-function fillArchTable() {
+function fillArchTable(arches) {
   let archTable = document.getElementById("legend_body");
   for (const archInfo of Object.values(arches)) {
     archTable.appendChild(makeArchRow(archInfo));
@@ -138,9 +148,12 @@ function fillArchTable() {
 }
 
 function render() {
-  patchArchColors();
-  scaleTimeline();
-  drawChart();
-  fillArchTable();
-  window.addEventListener("resize", reflow);
+  const patchedArches = patchArchColors(arches);
+  let timeline = new Timeline(
+      consoles, patchedArches, document.getElementById("timeline"));
+  timeline.draw();
+
+  fillArchTable(patchedArches);
+
+  window.addEventListener("resize", function() { timeline.redraw(); });
 }
