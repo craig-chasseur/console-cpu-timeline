@@ -6,6 +6,33 @@ body {
   text-align: center;
 }
 
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+table td, th {
+  border: 1px solid #aaaaaa;
+  padding: 8px;
+}
+
+#selector {
+  cursor: pointer;
+}
+
+th.selected {
+  background-color: lightblue;
+}
+
+th.selected a {
+  color: black;
+  text-decoration: none;
+}
+
+div.timeline {
+  margin-top: 1ch;
+}
+
 div.tooltip {
   font-size: medium;
   max-width: 50ch;
@@ -21,16 +48,6 @@ div.consolename {
 
 span.cpu {
   font-weight: bold;
-}
-
-#legend {
-  margin: auto;
-  border-collapse: collapse;
-}
-
-#legend td, th {
-  border: 1px solid #aaaaaa;
-  padding: 8px;
 }
 
 #footer {

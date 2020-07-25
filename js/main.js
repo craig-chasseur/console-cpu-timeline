@@ -107,6 +107,46 @@ class Timeline {
   }
 }
 
+class TimelineSelector {
+  constructor(timelineMap, tableHeaderRow) {
+    this.timelineMap = timelineMap;
+    this.selectorMap = this.buildSelectorMap(tableHeaderRow);
+    this.select(Object.keys(timelineMap)[0]);
+  }
+
+  select(selectedName) {
+    for (const name in this.timelineMap) {
+      if (selectedName == name) {
+        this.selectorMap[name].classList.add("selected");
+        this.timelineMap[name].show();
+      } else {
+        this.selectorMap[name].classList.remove("selected");
+        this.timelineMap[name].hide();
+      }
+    }
+  }
+
+  buildSelectorMap(tableHeaderRow) {
+    let selectorMap = {}
+    for (const name of Object.keys(this.timelineMap)) {
+      const text = document.createTextNode(name);
+
+      let link = document.createElement("a");
+      link.href = "javascript:void(0)";
+      link.appendChild(text);
+
+      let cell = document.createElement("th");
+      cell.appendChild(link);
+      let self = this;
+      cell.addEventListener("click", function() {self.select(name); });
+
+      tableHeaderRow.appendChild(cell);
+      selectorMap[name] = cell;
+    }
+    return selectorMap;
+  }
+}
+
 class ArchTable {
   static fill(arches, tableBody) {
     for (const archInfo of Object.values(arches)) {
@@ -161,10 +201,19 @@ function patchArchColors(arches) {
 function render() {
   const patchedArches = patchArchColors(arches);
 
-  let timeline = new Timeline(
-      consoles, patchedArches, document.getElementById("timeline"));
-  timeline.draw();
-  window.addEventListener("resize", function() { timeline.redraw(); });
+  let consoleTimeline = new Timeline(
+      consoles, patchedArches, document.getElementById("console_timeline"));
+  consoleTimeline.draw();
+  window.addEventListener("resize", function() { consoleTimeline.redraw(); });
+
+  let handheldTimeline = new Timeline(
+      handhelds, patchedArches, document.getElementById("handheld_timeline"));
+  handheldTimeline.draw();
+  window.addEventListener("resize", function() { handheldTimeline.redraw(); });
+
+  let selector = new TimelineSelector(
+      {"Home Consoles": consoleTimeline, "Handhelds": handheldTimeline},
+      document.getElementById("selector"));
 
   ArchTable.fill(patchedArches, document.getElementById("legend_body"));
 }
