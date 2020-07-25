@@ -12,6 +12,12 @@ div.tooltip {
   padding: 0ch 2ch;
 }
 
+div.consolename {
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
 span.cpu {
   font-weight: bold;
 }

@@ -63,6 +63,7 @@ class Timeline {
   static generateTooltip(consoleInfo) {
     return "<div class=\"tooltip\">" +
            "<p>" +
+             "<div class=\"consolename\">" + consoleInfo.name + "</div>" +
              "<span class=\"cpu\">CPU: " + consoleInfo.cpu + "</span>" +
              "<br>Cores: " + consoleInfo.cores +
              "<br>Clock speed: " + consoleInfo.clock +
