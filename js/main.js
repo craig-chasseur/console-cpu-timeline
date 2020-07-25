@@ -97,6 +97,49 @@ class Timeline {
   }
 }
 
+class ArchTable {
+  static fill(arches, tableBody) {
+    for (const archInfo of Object.values(arches)) {
+      tableBody.appendChild(ArchTable.makeArchRow(archInfo));
+    }
+  }
+
+  static makeArchRow(archInfo) {
+    let row = document.createElement("tr");
+
+    let nameCell = document.createElement("td");
+    nameCell.style.backgroundColor = archInfo.color;
+  
+    let link = document.createElement("a");
+    link.href = archInfo.link;
+    link.target = "_blank";
+    link.style.color = ArchTable.contrastTextColor(archInfo.color);
+  
+    let nameText = document.createTextNode(archInfo.name);
+  
+    link.appendChild(nameText);
+    nameCell.appendChild(link);
+    row.appendChild(nameCell);
+  
+    return row;
+  }
+
+  // This doesn't exactly match how google.charts automatically colors bar
+  // labels but it looks OK.
+  static contrastTextColor(backgroundColor) {
+    const rgbStrs =
+        /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(backgroundColor);
+    const red = parseInt(rgbStrs[1], 16);
+    const green = parseInt(rgbStrs[2], 16);
+    const blue = parseInt(rgbStrs[3], 16);
+
+    // Using W3C accessibility formula:
+    // https://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+    const brightness = ((red * 299) + (green * 587) + (blue * 114)) / 1000;
+    return brightness >= 128 ? "#000000" : "#ffffff";
+  }
+}
+
 function patchArchColors(arches) {
   let colorIdx = 0;
   for (let archInfo of Object.values(arches)) {
@@ -105,55 +148,13 @@ function patchArchColors(arches) {
   return arches;
 }
 
-// This doesn't exactly match how google.charts automatically colors bar labels
-// but it looks OK.
-function contrastTextColor(backgroundColor) {
-  const rgbStrs =
-      /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(backgroundColor);
-  const red = parseInt(rgbStrs[1], 16);
-  const green = parseInt(rgbStrs[2], 16);
-  const blue = parseInt(rgbStrs[3], 16);
-
-  // Using W3C accessibility formula:
-  // https://www.w3.org/WAI/ER/WD-AERT/#color-contrast
-  const brightness = ((red * 299) + (green * 587) + (blue * 114)) / 1000;
-  return brightness >= 128 ? "#000000" : "#ffffff";
-}
-
-function makeArchRow(archInfo) {
-  let row = document.createElement("tr");
-
-  let nameCell = document.createElement("td");
-  nameCell.style.backgroundColor = archInfo.color;
-
-  let link = document.createElement("a");
-  link.href = archInfo.link;
-  link.target = "_blank";
-  link.style.color = contrastTextColor(archInfo.color);
-
-  let nameText = document.createTextNode(archInfo.name);
-
-  link.appendChild(nameText);
-  nameCell.appendChild(link);
-  row.appendChild(nameCell);
-
-  return row;
-}
-
-function fillArchTable(arches) {
-  let archTable = document.getElementById("legend_body");
-  for (const archInfo of Object.values(arches)) {
-    archTable.appendChild(makeArchRow(archInfo));
-  }
-}
-
 function render() {
   const patchedArches = patchArchColors(arches);
+
   let timeline = new Timeline(
       consoles, patchedArches, document.getElementById("timeline"));
   timeline.draw();
-
-  fillArchTable(patchedArches);
-
   window.addEventListener("resize", function() { timeline.redraw(); });
+
+  ArchTable.fill(patchedArches, document.getElementById("legend_body"));
 }
