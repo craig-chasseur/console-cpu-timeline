@@ -355,7 +355,7 @@ const handhelds = [
     "cpu": "Sharp LR35902",
     "cores": "1",
     "clock": "8.38 MHz",
-    "description": "The same custom CPU (based on the Z80) at the original Game Boy, clocked twice as fast.",
+    "description": "The same custom CPU (based on the Z80) as the original Game Boy, clocked twice as fast.",
     "link": "https://en.wikipedia.org/wiki/Game_Boy_Color"
   },
   {
