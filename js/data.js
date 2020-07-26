@@ -48,7 +48,8 @@ const arches = {
   },
   "sh": {
     "name": "Hitachi SuperH",
-    "link": "https://en.wikipedia.org/wiki/SuperH"
+    "link": "https://en.wikipedia.org/wiki/SuperH",
+    "color": "#BEBE00"
   },
   "other": {
     "name": "Other",
