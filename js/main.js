@@ -213,9 +213,11 @@ function render() {
   handheldTimeline.draw();
   window.addEventListener("resize", function() { handheldTimeline.redraw(); });
 
+  ArchTable.fill(patchedArches, document.getElementById("legend_body"));
+
+  // Build this last so that when timelines are redrawn they have the right
+  // widths accounting for a scrollbar.
   let selector = new TimelineSelector(
       {"Home Consoles": consoleTimeline, "Handhelds": handheldTimeline},
       document.getElementById("selector"));
-
-  ArchTable.fill(patchedArches, document.getElementById("legend_body"));
 }
