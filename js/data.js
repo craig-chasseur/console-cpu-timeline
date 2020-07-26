@@ -49,6 +49,10 @@ const arches = {
   "sh": {
     "name": "Hitachi SuperH",
     "link": "https://en.wikipedia.org/wiki/SuperH"
+  },
+  "other": {
+    "name": "Other",
+    "color": "#A0A0A0"
   }
 };
 
@@ -332,6 +336,31 @@ const consoles = [
     "clock": "200 MHz",
     "description": "Hitachi SH-4 using the proprietary SuperH RISC instruction set. Designed for multimedia with an enhanced FPU.",
     "link": "https://en.wikipedia.org/wiki/Dreamcast"
+  },
+  {
+    "name": "TurboGrafx-16/PC Engine",
+    "manufacturer": "NEC",
+    "release_date": "1987-10-30",
+    "arch": "6502",
+    "cpu": "Hudson Soft HuC6280",
+    "cores": "1",
+    "clock": "7.16 MHz",
+    "description": "Hudson Soft's improved version of the WDC 65C02, itself an enhanced version of the original MOS Technology 6502. Adds additional features including an MMU and a sound generator.",
+    "link": "https://en.wikipedia.org/wiki/TurboGrafx-16",
+    "rare": true
+  },
+  {
+    "name": "PC-FX",
+    "manufacturer": "NEC",
+    "release_date": "1994-12-23",
+    "eol": "1998-02-28",
+    "arch": "other",
+    "cpu": "NEC V810",
+    "cores": "1",
+    "clock": "25 MHz",
+    "description": "A proprietary NEC-designed 32-bit RISC CPU.",
+    "link": "https://en.wikipedia.org/wiki/PC-FX",
+    "rare": true
   }
 ];
 
@@ -464,5 +493,18 @@ const handhelds = [
     "clock": "4 MHz",
     "description": "An enhanced CMOS version of the 6502 made by the Western Design Center.",
     "link": "https://en.wikipedia.org/wiki/Atari_Lynx"
+  },
+  {
+    "name": "TurboExpress",
+    "manufacturer": "NEC",
+    "release_date": "1990-12-01",
+    "eol": "1994-12-31",
+    "arch": "6502",
+    "cpu": "Hudson Soft HuC6280",
+    "cores": "1",
+    "clock": "7.16 MHz",
+    "description": "Hudson Soft's improved version of the WDC 65C02, itself an enhanced version of the original MOS Technology 6502. Adds additional features including an MMU and a sound generator. The same model as used in the original home version of the TurboGrafx-16.",
+    "link": "https://en.wikipedia.org/wiki/TurboExpress",
+    "rare": true
   }
 ];
