@@ -377,7 +377,20 @@ const consoles = [
     "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers. Includes a Z80A coprocessor to control sound.",
     "link": "https://en.wikipedia.org/wiki/Neo_Geo_(system)",
     "rare": true
-  }
+  },
+  {
+    "name": "3DO",
+    "manufacturer": "3DO",
+    "release_date": "1993-10-04",
+    "eol": "1996-12-31",
+    "arch": "arm",
+    "cpu": "ARM60",
+    "cores": "1",
+    "clock": "12.5 MHz",
+    "description": "The first ARM CPU to support a full 32-bit address space.",
+    "link": "https://en.wikipedia.org/wiki/3DO_Interactive_Multiplayer",
+    "rare": true
+  },
 ];
 
 const handhelds = [
@@ -536,5 +549,18 @@ const handhelds = [
     "description": "A proprietary 32-bit microcontroller from Toshiba, partially based on the Z80 instruction set. Also includes a Z80 coprocessor to control sound.",
     "link": "https://en.wikipedia.org/wiki/Neo_Geo_Pocket",
     "rare": true
-  }
+  },
+  {
+    "name": "WonderSwan",
+    "manufacturer": "Bandai",
+    "release_date": "1999-03-04",
+    "eol": "2003-12-31",
+    "arch": "x86",
+    "cpu": "NEC V30 MZ",
+    "cores": "1",
+    "clock": "3.072 MHz",
+    "description": "A reverse-engineered x86 CPU pin-compatible with the Intel 8086, supporting the additional instructions of the 80186.",
+    "link": "https://en.wikipedia.org/wiki/WonderSwan",
+    "rare": true
+  },
 ];
