@@ -9,12 +9,20 @@ const chartOptions = {
   tooltip: { isHtml: true }
 };
 
-class Timeline {
-  constructor(consoles, arches, domContainer) {
+function nonRareConsoles(consoles) {
+  let nonRare = [];
+  for (const consoleInfo of consoles) {
+    if ("rare" in consoleInfo && consoleInfo["rare"]) continue;
+    nonRare.push(consoleInfo);
+  }
+  return nonRare;
+}
+
+class TimelineData {
+  constructor(consoles, arches) {
     this.consoles = consoles;
 
-    this.domContainer = domContainer;
-    this.containerHeight = Timeline.calculateHeight(consoles);
+    this.containerHeight = TimelineData.calculateHeight(consoles);
 
     this.dataTable = new google.visualization.DataTable();
     this.dataTable.addColumn({ type: 'string', id: 'Manufacturer' });
@@ -26,38 +34,7 @@ class Timeline {
     this.dataTable.addColumn({ type: 'date', id: 'End' });
   
     this.dataTable.addRows(
-        Timeline.generateDataRows(consoles, arches, globalEndDate));
-  }
-
-  draw() {
-    this.domContainer.style.height = this.containerHeight;
-    this.chart = new google.visualization.Timeline(this.domContainer);
-    this.chart.draw(this.dataTable, chartOptions);
-
-    let self = this;
-    google.visualization.events.addListener(
-        this.chart, "select", function() { self.selectBar(); });
-  }
-
-  redraw() {
-    this.chart.clearChart();
-    this.chart.draw(this.dataTable, chartOptions);
-  }
-
-  selectBar() {
-    const selection = this.chart.getSelection();
-    for (const item of selection) {
-      window.open(this.consoles[item.row].link);
-    }
-  }
-
-  hide() {
-    this.domContainer.style.display = "none";
-  }
-
-  show() {
-    this.domContainer.style.display = "block";
-    this.redraw();
+        TimelineData.generateDataRows(consoles, arches, globalEndDate));
   }
 
   static calculateHeight(consoles) {
@@ -100,10 +77,65 @@ class Timeline {
       let style = "color: " + arches[thisConsole.arch].color + ";"
 
       dataRows.push([thisConsole.manufacturer, thisConsole.name,
-                     Timeline.generateTooltip(thisConsole), style,
+                     TimelineData.generateTooltip(thisConsole), style,
                      new Date(Date.parse(thisConsole.release_date)), endDate]);
     }
     return dataRows;
+  }
+}
+
+class Timeline {
+  constructor(consoles, arches, domContainer) {
+    this.data = new TimelineData(nonRareConsoles(consoles), arches);
+    this.dataWithRare = new TimelineData(consoles, arches);
+    this.domContainer = domContainer;
+    this.visible = false;
+    this.showRare = false;
+  }
+
+  getData() {
+    return this.showRare ? this.dataWithRare : this.data;
+  }
+
+  draw() {
+    this.domContainer.style.height = this.getData().containerHeight;
+    this.chart = new google.visualization.Timeline(this.domContainer);
+    this.chart.draw(this.getData().dataTable, chartOptions);
+    this.visible = true;
+
+    let self = this;
+    google.visualization.events.addListener(
+        this.chart, "select", function() { self.selectBar(); });
+  }
+
+  redraw() {
+    if (!this.visible) return;
+    this.chart.clearChart();
+    this.chart.draw(this.getData().dataTable, chartOptions);
+  }
+
+  selectBar() {
+    const selection = this.chart.getSelection();
+    for (const item of selection) {
+      window.open(this.getData().consoles[item.row].link);
+    }
+  }
+
+  hide() {
+    this.domContainer.style.display = "none";
+    this.visible = false;
+  }
+
+  show() {
+    this.domContainer.style.display = "block";
+    this.visible = true;
+    this.redraw();
+  }
+
+  toggleRare(evt) {
+    this.showRare = evt.target.checked;
+    this.domContainer.style.height = this.getData().containerHeight;
+    this.redraw();
   }
 }
 
@@ -208,15 +240,21 @@ function patchArchColors(arches) {
 function render() {
   const patchedArches = patchArchColors(arches);
 
+  let rareToggler = document.getElementById("toggle_extra");
+
   let consoleTimeline = new Timeline(
       consoles, patchedArches, document.getElementById("console_timeline"));
   consoleTimeline.draw();
   window.addEventListener("resize", function() { consoleTimeline.redraw(); });
+  rareToggler.addEventListener(
+      "click", function(evt) { consoleTimeline.toggleRare(evt); });
 
   let handheldTimeline = new Timeline(
       handhelds, patchedArches, document.getElementById("handheld_timeline"));
   handheldTimeline.draw();
   window.addEventListener("resize", function() { handheldTimeline.redraw(); });
+  rareToggler.addEventListener(
+      "click", function(evt) { handheldTimeline.toggleRare(evt); });
 
   ArchTable.fill(patchedArches, document.getElementById("legend_body"));
 
@@ -225,4 +263,5 @@ function render() {
   let selector = new TimelineSelector(
       {"Home Consoles": consoleTimeline, "Handhelds": handheldTimeline},
       document.getElementById("selector"));
+  document.getElementById("toggle_extra_cell").setAttribute("colspan", "2");
 }

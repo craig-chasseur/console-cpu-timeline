@@ -14,7 +14,15 @@
   <body>
     <h1 id="titlebar">Game Console CPU Timeline</h1>
     <p>Hover for details, click to go to Wikipedia.</p>
-    <table><thead><tr id="selector"></tr></thead></table>
+    <table>
+      <thead><tr id="selector"></tr></thead>
+      <tbody><tr><td id="toggle_extra_cell">
+        <form>
+          <label for="toggle_extra">Show rare consoles:</label>
+          <input type="checkbox" id="toggle_extra" name="toggle_extra">
+        </form>
+      </td></tr></tbody>
+    </table>
     <div id="console_timeline" class="timeline"></div>
     <div id="handheld_timeline" class="timeline"></div>
     <table id="legend">
