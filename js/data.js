@@ -379,19 +379,6 @@ const consoles = [
     "rare": true
   },
   {
-    "name": "3DO",
-    "manufacturer": "3DO",
-    "release_date": "1993-10-04",
-    "eol": "1996-12-31",
-    "arch": "arm",
-    "cpu": "ARM60",
-    "cores": "1",
-    "clock": "12.5 MHz",
-    "description": "The first ARM CPU to support a full 32-bit address space.",
-    "link": "https://en.wikipedia.org/wiki/3DO_Interactive_Multiplayer",
-    "rare": true
-  },
-  {
     "name": "CD-i",
     "manufacturer": "Phillips",
     "release_date": "1991-12-03",
@@ -402,6 +389,19 @@ const consoles = [
     "clock": "15.5 MHz",
     "description": "A licensed design compatible with the Motorola 68000 with some additional features.",
     "link": "https://en.wikipedia.org/wiki/CD-i",
+    "rare": true
+  },
+  {
+    "name": "3DO",
+    "manufacturer": "3DO",
+    "release_date": "1993-10-04",
+    "eol": "1996-12-31",
+    "arch": "arm",
+    "cpu": "ARM60",
+    "cores": "1",
+    "clock": "12.5 MHz",
+    "description": "The first ARM CPU to support a full 32-bit address space.",
+    "link": "https://en.wikipedia.org/wiki/3DO_Interactive_Multiplayer",
     "rare": true
   }
 ];
