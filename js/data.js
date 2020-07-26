@@ -563,4 +563,17 @@ const handhelds = [
     "link": "https://en.wikipedia.org/wiki/WonderSwan",
     "rare": true
   },
+  {
+    "name": "N-Gage",
+    "manufacturer": "Nokia",
+    "release_date": "2003-10-07",
+    "eol": "2005-11-26",
+    "arch": "arm",
+    "cpu": "ARM920T",
+    "cores": "1",
+    "clock": "104 MHz",
+    "description": "A widely-used 32-bit ARM application processor.",
+    "link": "https://en.wikipedia.org/wiki/N-Gage_(device)",
+    "rare": true
+  }
 ];
