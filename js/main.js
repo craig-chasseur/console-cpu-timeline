@@ -91,6 +91,7 @@ class Timeline {
     this.domContainer = domContainer;
     this.visible = false;
     this.showRare = false;
+    this.hoverIdx = null;
   }
 
   getData() {
@@ -106,6 +107,10 @@ class Timeline {
     let self = this;
     google.visualization.events.addListener(
         this.chart, "select", function() { self.selectBar(); });
+    google.visualization.events.addListener(
+        this.chart, "onmouseover", function(evt) { self.hover(evt); });
+    google.visualization.events.addListener(
+        this.chart, "onmouseout", function(evt) { self.unHover(evt); });
   }
 
   redraw() {
@@ -117,8 +122,18 @@ class Timeline {
   selectBar() {
     const selection = this.chart.getSelection();
     for (const item of selection) {
-      window.open(this.getData().consoles[item.row].link);
+      if (this.hoverIdx == item.row) {
+        window.open(this.getData().consoles[item.row].link);
+      }
     }
+  }
+
+  hover(evt) {
+    this.hoverIdx = evt.row;
+  }
+
+  unHover(evt) {
+    this.hoverIdx = null;
   }
 
   hide() {
