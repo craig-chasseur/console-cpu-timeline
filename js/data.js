@@ -396,7 +396,7 @@ const handhelds = [
   {
     "name": "New Nintendo 3DS",
     "manufacturer": "Nintendo",
-    "release_date": "2014-10-1",
+    "release_date": "2014-10-01",
     "eol": "2019-12-31",
     "arch": "arm",
     "cpu": "ARM11 MPCore",
