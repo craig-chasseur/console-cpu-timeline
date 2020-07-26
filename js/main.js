@@ -157,22 +157,26 @@ class ArchTable {
   }
 
   static makeArchRow(archInfo) {
-    let row = document.createElement("tr");
+    const nameText = document.createTextNode(archInfo.name);
+
+    let nameElement = null;
+    if ("link" in archInfo) {
+      nameElement = document.createElement("a");
+      nameElement.href = archInfo.link;
+      nameElement.target = "_blank";
+    } else {
+      nameElement = document.createElement("span");
+    }
+    nameElement.style.color = ArchTable.contrastTextColor(archInfo.color);
+    nameElement.appendChild(nameText);
 
     let nameCell = document.createElement("td");
     nameCell.style.backgroundColor = archInfo.color;
-  
-    let link = document.createElement("a");
-    link.href = archInfo.link;
-    link.target = "_blank";
-    link.style.color = ArchTable.contrastTextColor(archInfo.color);
-  
-    let nameText = document.createTextNode(archInfo.name);
-  
-    link.appendChild(nameText);
-    nameCell.appendChild(link);
+    nameCell.appendChild(nameElement);
+
+    let row = document.createElement("tr");
     row.appendChild(nameCell);
-  
+
     return row;
   }
 
@@ -195,6 +199,7 @@ class ArchTable {
 function patchArchColors(arches) {
   let colorIdx = 0;
   for (let archInfo of Object.values(arches)) {
+    if ("color" in archInfo) continue;
     archInfo.color = colors[colorIdx++];
   }
   return arches;
