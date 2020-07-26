@@ -312,7 +312,8 @@ const consoles = [
     "cpu": "Motorola 68000",
     "cores": "1",
     "clock": "7.6 MHz",
-    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers.",
+    "coprocessors": "Zilog Z80 at 3.58 MHz",
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers. Also includes a Zilog Z80 to control sound and provide Master System backwards compatibility.",
     "link": "https://en.wikipedia.org/wiki/Sega_Genesis"
   },
   {
@@ -361,6 +362,20 @@ const consoles = [
     "clock": "25 MHz",
     "description": "A proprietary NEC-designed 32-bit RISC CPU.",
     "link": "https://en.wikipedia.org/wiki/PC-FX",
+    "rare": true
+  },
+  {
+    "name": "Neo Geo",
+    "manufacturer": "SNK",
+    "release_date": "1990-04-26",
+    "eol": "1997-12-31",
+    "arch": "m68k",
+    "cpu": "Motorola 68000",
+    "cores": "1",
+    "clock": "12 MHz",
+    "coprocessors": "Zilog Z80A at 4 MHz",
+    "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers. Includes a Z80A coprocessor to control sound.",
+    "link": "https://en.wikipedia.org/wiki/Neo_Geo_(system)",
     "rare": true
   }
 ];
@@ -506,6 +521,20 @@ const handhelds = [
     "clock": "7.16 MHz",
     "description": "Hudson Soft's improved version of the WDC 65C02, itself an enhanced version of the original MOS Technology 6502. Adds additional features including an MMU and a sound generator. The same model as used in the original home version of the TurboGrafx-16.",
     "link": "https://en.wikipedia.org/wiki/TurboExpress",
+    "rare": true
+  },
+  {
+    "name": "Neo Geo Pocket",
+    "manufacturer": "SNK",
+    "release_date": "1998-10-28",
+    "eol": "2000-06-13",
+    "arch": "other",
+    "cpu": "Toshiba TLCS900H",
+    "cores": "1",
+    "clock": "6.144 MHz",
+    "coprocessors": "Zilog Z80 at 3.072 MHz",
+    "description": "A proprietary 32-bit microcontroller from Toshiba, partially based on the Z80 instruction set. Also includes a Z80 coprocessor to control sound.",
+    "link": "https://en.wikipedia.org/wiki/Neo_Geo_Pocket",
     "rare": true
   }
 ];
