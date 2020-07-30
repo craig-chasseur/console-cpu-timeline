@@ -129,10 +129,10 @@ const consoles = [
     "manufacturer": "Nintendo",
     "release_date": "2017-03-03",
     "arch": "arm",
-    "cpu": "NVidia Tegra X1",
-    "cores": "4 (technically 8, but only 4 enabled)",
+    "cpu": "ARM Cortex-A57",
+    "cores": "4",
     "clock": "1.02 GHz",
-    "description": "A system-on-a-chip combining 4 high-performance ARM Cortex-A57 cores, 4 low-power ARM Cortex-A53 cores (disabled), and onboard NVidia graphics.",
+    "description": "An NVidia Tegra X1 system-on-a-chip combining 4 high-performance ARM Cortex-A57 cores, 4 low-power ARM Cortex-A53 cores (disabled), and onboard NVidia GPU.",
     "link": "https://en.wikipedia.org/wiki/Nintendo_Switch"
   },
   {
