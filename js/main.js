@@ -255,7 +255,7 @@ function patchArchColors(arches) {
 function render() {
   const patchedArches = patchArchColors(arches);
 
-  let rareToggler = document.getElementById("toggle_extra");
+  let rareToggler = document.getElementById("toggle_rare");
 
   let consoleTimeline = new Timeline(
       consoles, patchedArches, document.getElementById("console_timeline"));
@@ -278,5 +278,5 @@ function render() {
   let selector = new TimelineSelector(
       {"Home Consoles": consoleTimeline, "Handhelds": handheldTimeline},
       document.getElementById("selector"));
-  document.getElementById("toggle_extra_cell").setAttribute("colspan", "2");
+  document.getElementById("toggle_rare_cell").setAttribute("colspan", "2");
 }
