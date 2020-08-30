@@ -437,7 +437,8 @@ const handhelds = [
     "cpu": "ARM7TDMI",
     "cores": "1",
     "clock": "16.78 MHz",
-    "description": "A widely-used 32-bit embedded ARM core.",
+    "coprocessors": "Sharp LR35902 at 8.38 MHz",
+    "description": "A widely-used 32-bit embedded ARM core. Includes a Z80-based Sharp LR35902 processor for backwards compatibility with Game Boy & Game Boy Color.",
     "link": "https://en.wikipedia.org/wiki/Game_Boy_Advance"
   },
   {
