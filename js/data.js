@@ -503,6 +503,18 @@ const handhelds = [
     "link": "https://en.wikipedia.org/wiki/PlayStation_Vita"
   },
   {
+    "name": "Lynx",
+    "manufacturer": "Atari",
+    "release_date": "1989-09-01",
+    "eol": "1995-12-31",
+    "arch": "6502",
+    "cpu": "WDC 65SC02",
+    "cores": "1",
+    "clock": "4 MHz",
+    "description": "An enhanced CMOS version of the 6502 made by the Western Design Center.",
+    "link": "https://en.wikipedia.org/wiki/Atari_Lynx"
+  },
+  {
     "name": "Game Gear",
     "manufacturer": "Sega",
     "release_date": "1990-11-06",
@@ -524,18 +536,6 @@ const handhelds = [
     "clock": "7.6 MHz",
     "description": "The first of Motorola's 68k line, with a 32-bit instruction set but 16-bit ALUs. Also used in early Macintosh, Amiga, and Atari ST computers. The same model as used in the original home version of the Genesis.",
     "link": "https://en.wikipedia.org/wiki/Genesis_Nomad"
-  },
-  {
-    "name": "Lynx",
-    "manufacturer": "Atari",
-    "release_date": "1989-09-01",
-    "eol": "1995-12-31",
-    "arch": "6502",
-    "cpu": "WDC 65SC02",
-    "cores": "1",
-    "clock": "4 MHz",
-    "description": "An enhanced CMOS version of the 6502 made by the Western Design Center.",
-    "link": "https://en.wikipedia.org/wiki/Atari_Lynx"
   },
   {
     "name": "TurboExpress",
