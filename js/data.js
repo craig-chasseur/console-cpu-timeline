@@ -189,7 +189,7 @@ const consoles = [
     "cpu": "AMD Zen 2",
     "cores": "8",
     "clock": "3.5 GHz",
-    "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores using same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
     "link": "https://en.wikipedia.org/wiki/PlayStation_5"
   },
   {
@@ -233,7 +233,7 @@ const consoles = [
     "cpu": "AMD Zen 2",
     "cores": "8",
     "clock": "3.8 GHz (3.6 GHz with SMT enabled)",
-    "description": "An 8-core AMD CPU using the same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores using same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
     "link": "https://en.wikipedia.org/wiki/Xbox_Series_X"
   },
   {
