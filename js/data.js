@@ -178,7 +178,7 @@ const consoles = [
     "cpu": "AMD Jaguar",
     "cores": "8",
     "clock": "1.6 GHz (2.13 GHz in PS4 Pro)",
-    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture.",
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture. The revised PS4 Pro hardware has a higher clockspeed.",
     "link": "https://en.wikipedia.org/wiki/PlayStation_4"
   },
   {
@@ -222,18 +222,18 @@ const consoles = [
     "cpu": "AMD Jaguar",
     "cores": "8",
     "clock": "1.75 GHz (2.3 GHz in Xbox One X)",
-    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture.",
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores based on the low-power \"Jaguar\" architecture. The revised XBox One X hardware has a higher clockspeed.",
     "link": "https://en.wikipedia.org/wiki/Xbox_One"
   },
   {
-    "name": "Xbox Series X",
+    "name": "Xbox Series X/S",
     "manufacturer": "Microsoft",
     "release_date": "2020-11-10",
     "arch": "x86",
     "cpu": "AMD Zen 2",
     "cores": "8",
-    "clock": "3.8 GHz (3.6 GHz with SMT enabled)",
-    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores using same Zen 2 architecture as high-end Ryzen and EPYC CPUs.",
+    "clock": "3.8 GHz (3.6 GHz w/ SMT enabled) in Series X; 3.6/3.4 GHz in Series S",
+    "description": "An AMD-designed CPU and GPU on one package with 8 CPU cores using same Zen 2 architecture as high-end Ryzen and EPYC CPUs. Maximum clock speed is slightly slower when simultaneous multithreading (SMT) is enabled. The Series S has a slightly lower clockspeed than the Series X (along with a lower-power GPU and less RAM).",
     "link": "https://en.wikipedia.org/wiki/Xbox_Series_X"
   },
   {
