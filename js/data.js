@@ -184,7 +184,7 @@ const consoles = [
   {
     "name": "PlayStation 5",
     "manufacturer": "Sony",
-    "release_date": "2020-11-01",
+    "release_date": "2020-11-12",
     "arch": "x86",
     "cpu": "AMD Zen 2",
     "cores": "8",
@@ -228,7 +228,7 @@ const consoles = [
   {
     "name": "Xbox Series X",
     "manufacturer": "Microsoft",
-    "release_date": "2020-11-01",
+    "release_date": "2020-11-10",
     "arch": "x86",
     "cpu": "AMD Zen 2",
     "cores": "8",
