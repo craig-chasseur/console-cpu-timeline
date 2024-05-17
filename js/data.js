@@ -403,6 +403,20 @@ const consoles = [
     "description": "The first ARM CPU to support a full 32-bit address space.",
     "link": "https://en.wikipedia.org/wiki/3DO_Interactive_Multiplayer",
     "rare": true
+  },
+  {
+    "name": "Amiga CD32",
+    "manufacturer": "Commodore",
+    "release_date": "1993-09-01",
+    "eol": "1994-04-29",
+    "arch": "m68k",
+    "cpu": "Motorola 68EC020",
+    "cores": "1",
+    "clock": "14.32 MHz",
+    "coprocessors": "Amiga AGA (Advanced Graphics Architecture) Chipset",
+    "description": "A cost-reduced version of the 68020, the fully 32-bit successor of the 68000. Internally fully 32-bit, but with a 24-bit address bus that limits addressable RAM to 16 MiB.",
+    "link": "https://en.wikipedia.org/wiki/Amiga_CD32",
+    "rare": true,
   }
 ];
 
